@@ -46,5 +46,30 @@
 
     <!-- Angular Material Javascript using RawGit to load directly from `bower-material/master` -->
     <script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>
+    
+    <script>
+            var app = angular.module('myApp', ['ngMaterial']);
+      
+      app.controller('myController', function($scope, $http) {
+        $scope.user = { };
+        
+        $scope.login = function() {
+            $http.post('/', $scope.user)
+                 .success(function() {
+                   $scope.success = true;
+                   document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
+                 })
+                 .error(function() {
+                   $scope.success = true;
+                   document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
+                 });
+        
+        };
+        
+        
+      });
+      
+    </script>
+    
   </body>
   </html>
