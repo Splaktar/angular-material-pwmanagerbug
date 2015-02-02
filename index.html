@@ -6,11 +6,9 @@
     <link rel="stylesheet" href="//rawgit.com/angular/bower-material/master/angular-material.css">
 
   </head>
-  <body ng-app="myApp" ng-controller="myController">
+  <body ng-app="myApp" ng-controller="myController" style="padding: 20px;">
         <a href="/angular-material-pwmanagerbug/members.html"> To member area </a>
-        <h2>Sign in</h2>
-        <form layout="column" layout-align="center center" ng-submit="login()" autocomplete="on">
-
+        <form layout="column" ng-submit="login()" autocomplete="on">
                 <md-input-container>
                     <label> Username or E-Mail </label>
                     <input ng-model="user.name" type="text" name="username" required>
@@ -21,17 +19,12 @@
                     <input ng-model="user.password" type="password" name="password" required>
                 </md-input-container>
 
-
-            <button type="submit" class="pure-button pure-button-primary transition" ng-disabled="loading">
-                <span ng-hide="loading"> Sign in </span>
-                <span ng-show="loading"> Verifying... </span>
-            </button>
-
+            <button type="submit"> Sign in </button>
         </form>
 
     </md-whiteframe>
 
-
+    <!-- Password manager trigger? -->
     <div ng-if="success"> Successfully logged in! </div>
 
 
@@ -45,19 +38,14 @@
     <script src="//rawgit.com/angular/bower-material/master/angular-material.js"></script>
     
     <script>
-            var app = angular.module('myApp', ['ngMaterial']);
+      var app = angular.module('myApp', ['ngMaterial']);
       
       app.controller('myController', function($scope, $http) {
         $scope.user = { };
         
         $scope.login = function() {
             // hopefully SOMETHING here triggers the password manager
-            $http.post('/', $scope.user)
-                 .success(function() {
-                   $scope.success = true;
-                   document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
-                   window.location.href = "/angular-material-pwmanagerbug/members.html";
-                 })
+            $http.post('/', $scope.user) // post request always fails - doesnt matter
                  .error(function() {
                    $scope.success = true;
                    document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
