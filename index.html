@@ -7,22 +7,21 @@
 
   </head>
   <body ng-app="myApp" ng-controller="myController" style="padding: 20px;">
-        <a href="/angular-material-pwmanagerbug/members.html"> To member area </a>
-        <form layout="column" ng-submit="login()" autocomplete="on">
-                <md-input-container>
-                    <label> Username or E-Mail </label>
-                    <input ng-model="user.name" type="text" name="username" required>
-                </md-input-container>
+    <a href="/angular-material-pwmanagerbug/members.html"> To member area </a>
 
-                <md-input-container>
-                    <label> Password </label>
-                    <input ng-model="user.password" type="password" name="password" required>
-                </md-input-container>
+    <form layout="column" ng-submit="login()" autocomplete="on">
+      <md-input-container>
+        <label> Username or E-Mail </label>
+        <input ng-model="user.name" type="text" name="username" required>
+      </md-input-container>
 
-            <button type="submit"> Sign in </button>
-        </form>
+      <md-input-container>
+        <label> Password </label>
+        <input ng-model="user.password" type="password" name="password" required>
+      </md-input-container>
 
-    </md-whiteframe>
+      <button type="submit"> Sign in </button>
+    </form>
 
     <!-- Password manager trigger? -->
     <div ng-if="success"> Successfully logged in! </div>
