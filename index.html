@@ -54,14 +54,17 @@
         $scope.user = { };
         
         $scope.login = function() {
+            // hopefully SOMETHING here triggers the password manager
             $http.post('/', $scope.user)
                  .success(function() {
                    $scope.success = true;
                    document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
+                   window.href.location = "/members.html";
                  })
                  .error(function() {
                    $scope.success = true;
                    document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
+                   window.href.location = "/members.html";
                  });
         
         };
