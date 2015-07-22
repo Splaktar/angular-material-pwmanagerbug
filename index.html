@@ -19,7 +19,7 @@
 
       <md-input-container>
         <label> Password </label>
-        <input ng-model="user.password" type="password" name="password" required>
+        <input ng-model="user.password" type="password" name="password" required auto-fill-sync>
       </md-input-container>
 
       <button type="submit"> Sign in </button>
@@ -52,12 +52,23 @@
                    document.cookie = 'sessionid="34kfg49g;dl9gk4slogjsgls4j"';
                    window.location.href = "/angular-material-pwmanagerbug/members.html";
                  });
-        
         };
-        
-        
       });
       
+      app.directive('autoFillSync', function($timeout) {
+        return {
+          require: 'ngModel',
+          link: function(scope, elem, attrs, model) {
+              var origVal = elem.val();
+              $timeout(function () {
+                  var newVal = elem.val();
+                  if(model.$pristine && origVal !== newVal) {
+                      model.$setViewValue(newVal);
+                  }
+              }, 500);
+          }
+        };
+      });
     </script>
     
   </body>
