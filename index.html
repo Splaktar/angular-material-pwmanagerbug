@@ -60,7 +60,7 @@
           require: 'ngModel',
           link: function(scope, elem, attrs, model) {
               $timeout(function() {
-                  elem.triggerHandler('input');
+                  elem.trigger('input');
              }, 200)
           }
         };
