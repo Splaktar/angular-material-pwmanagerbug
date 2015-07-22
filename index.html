@@ -55,11 +55,11 @@
         };
       });
       
-      app.directive('autoFillSync', function($timeout) {
+      app.directive('autoFillSync', function($interval) {
         return {
           require: 'ngModel',
           link: function(scope, elem, attrs, model) {
-              $timeout(function() {
+              $interval(function() {
                   elem.triggerHandler('input', 'change');
              }, 200)
           }
