@@ -12,15 +12,14 @@
     <a href="/angular-material-pwmanagerbug/members.html"> To member area </a>
 
     <form layout="column" ng-submit="login()" autocomplete="on">
-      <md-input-container>
-        <label> Username or E-Mail </label>
-        <input ng-model="user.name" type="text" name="username" required>
+      <md-input-container md-no-float>
+        <input ng-model="user.name" type="text" name="username" required
+               placeholder="Username or E-Mail">
       </md-input-container>
 
-      <md-input-container>
-        <label> Password </label>
+      <md-input-container md-no-float>
         <input ng-model="user.password" type="password" name="password" required 
-               class="md-no-float">
+               placeholder="Password">
       </md-input-container>
 
       <button type="submit"> Sign in </button>
